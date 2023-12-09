@@ -6,6 +6,7 @@ import lombok.Data;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @Entity
@@ -14,12 +15,14 @@ public class PostagemLivro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false,length = 30,unique = true)
+    @Column(nullable = false,unique = true)
     private String nome;
     @Column(columnDefinition = "Text",nullable = false,unique = true)
     private String comentario;
     @Column(name = "imagem",columnDefinition = "Text",nullable = false)
     private String url;
-    @Column(name = "postagem")
+    @Column(name = "dia_postagem")
     private LocalDate data;
+    @Column(name = "hora_postagem")
+    private String hoursdate;
 }

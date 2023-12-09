@@ -6,7 +6,9 @@ import com.example.liblog.repositorys.RepositoryPostagem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
@@ -27,8 +29,10 @@ public class ServicePostagem {
 
     public DtoPostagem create(PostagemLivro postagemLivro){
         Date data = new Date();
+        String hours = new SimpleDateFormat("hh:mm:ss").format(data);
         LocalDate date = data.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         postagemLivro.setData(date);
+        postagemLivro.setHoursdate(hours);
         repositoryPostagem.save(postagemLivro);
 
         return new DtoPostagem(postagemLivro);

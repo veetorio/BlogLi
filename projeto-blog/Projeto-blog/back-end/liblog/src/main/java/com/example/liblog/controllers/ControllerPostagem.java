@@ -4,15 +4,18 @@ import com.example.liblog.dtos.DtoPostagem;
 import com.example.liblog.models.PostagemLivro;
 import com.example.liblog.service.ServicePostagem;
 
-import org.hibernate.ResourceClosedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
+
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/blog")
@@ -37,6 +40,11 @@ public class ControllerPostagem {
 
     @PostMapping
     public ResponseEntity<DtoPostagem> create(@RequestBody PostagemLivro postagemLivro) {
-        return ResponseEntity.status(201).body(servicePostagem.create(postagemLivro));
+        try {
+            return ResponseEntity.status(201).body(servicePostagem.create(postagemLivro));
+        }catch (Exception exceptionDuplicate){
+            String errorMessage = exceptionDuplicate.getCause().getLocalizedMessage();
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).header("error",errorMessage).build();
+        }
     }
 }
