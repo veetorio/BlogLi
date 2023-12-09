@@ -15,8 +15,8 @@ public class DtoPostagem {
     private String url;
     private LocalDate data;
 
-    public static List<DtoPostagem> convertDto(List<PostagemLivro> postagemLivro){
-        return postagemLivro.stream().map(livros -> new DtoPostagem(livros)).collect(Collectors.toList());
+    public static List<DtoPostagem> convertListDto(List<PostagemLivro> postagemLivro){
+        return postagemLivro.stream().map(DtoPostagem::new).collect(Collectors.toList());
     }
 
     public DtoPostagem(PostagemLivro postagemLivro) {
