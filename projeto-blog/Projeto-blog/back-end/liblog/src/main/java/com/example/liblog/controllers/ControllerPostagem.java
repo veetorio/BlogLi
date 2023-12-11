@@ -4,6 +4,7 @@ import com.example.liblog.dtos.DtoPostagem;
 import com.example.liblog.models.PostagemLivro;
 import com.example.liblog.service.ServicePostagem;
 
+import org.aspectj.lang.annotation.DeclareError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ import java.util.logging.Logger;
 @RequestMapping("/blog")
 public class ControllerPostagem {
 
+    NoSuchElementException suc;
     @Autowired
     ServicePostagem servicePostagem;
 
@@ -29,13 +31,10 @@ public class ControllerPostagem {
         return ResponseEntity.status(200).body(servicePostagem.findAll());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<DtoPostagem> findById(@PathVariable(value = "id") Long id) {
-        try{
-             return ResponseEntity.status(HttpStatus.FOUND).body(servicePostagem.findById(id));
-        }catch(NoSuchElementException such){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+    @GetMapping("/{name}")
+    public ResponseEntity<DtoPostagem> findByName(@PathVariable(value = "name") String name) {
+        DtoPostagem returndto = servicePostagem.findByName(name);
+        return ResponseEntity.status(200).body(returndto);
     }
 
     @PostMapping

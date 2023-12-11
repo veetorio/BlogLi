@@ -23,8 +23,10 @@ public class ServicePostagem {
         return DtoPostagem.convertListDto(listaLivros);
     }
     
-    public DtoPostagem findById(Long id){
-        return repositoryPostagem.findById(id).map(DtoPostagem::new).orElseThrow();
+    public DtoPostagem findByName(String name){
+       PostagemLivro livro = repositoryPostagem.findByName(name);
+       DtoPostagem dto = new DtoPostagem(livro);
+       return dto;
     }
 
     public DtoPostagem create(PostagemLivro postagemLivro){
