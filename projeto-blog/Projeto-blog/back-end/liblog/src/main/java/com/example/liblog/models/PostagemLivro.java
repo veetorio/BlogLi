@@ -25,4 +25,21 @@ public class PostagemLivro {
     private LocalDate data;
     @Column(name = "hora_postagem")
     private String hoursdate;
+
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public String getHoursdate() {
+        return hoursdate;
+    }
+
+    public void setHoursdate(String hoursdate) {
+        this.hoursdate = hoursdate;
+    }
 }

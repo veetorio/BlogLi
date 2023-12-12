@@ -39,11 +39,13 @@ public class ControllerPostagem {
 
     @PostMapping
     public ResponseEntity<DtoPostagem> create(@RequestBody PostagemLivro postagemLivro) {
-        try {
-            return ResponseEntity.status(201).body(servicePostagem.create(postagemLivro));
-        }catch (Exception exceptionDuplicate){
-            String errorMessage = exceptionDuplicate.getCause().getLocalizedMessage();
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).header("error",errorMessage).build();
-        }
+        return ResponseEntity.status(201).body(servicePostagem.create(postagemLivro));
     }
+
+    @DeleteMapping("/{name}")
+    public ResponseEntity deleteByName(@PathVariable(value = "name") String name){
+        servicePostagem.delete(name);
+        return ResponseEntity.status(200).body("objeto deletado com sucesso");
+    }
+
 }

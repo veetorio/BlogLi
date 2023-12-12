@@ -44,6 +44,11 @@ public class ServicePostagem {
         return new DtoPostagem(postagemLivro);
     }
 
+    public void delete(String name){
+        PostagemLivro dto = repositoryPostagem.findByName(name);
+        repositoryPostagem.delete(dto);
+    }
+
 
 
 
