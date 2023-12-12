@@ -17,6 +17,8 @@ spring.jpa.show-sql=true
 ### POST
 
 * POST : http://localhost:8080/blog
+  
+#### corpo do post 
 
 ```javascript
 {
@@ -28,3 +30,10 @@ spring.jpa.show-sql=true
 }
 ```
 
+### GET-ALL
+
+* GET : http://localhost:8080/blog
+
+### GET-BY-NAME 
+
+* GETByName : http://localhost:8080/blog/nome-da-postagem
