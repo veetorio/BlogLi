@@ -15,7 +15,7 @@ public class PostagemLivro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false,unique = true,length = 35)
     private String nome;
     @Column(columnDefinition = "Text",nullable = false,unique = true)
     private String comentario;
@@ -23,23 +23,8 @@ public class PostagemLivro {
     private String url;
     @Column(name = "dia_postagem")
     private LocalDate data;
-    @Column(name = "hora_postagem")
+    @Column(name = "hora_postagem",length = 12)
     private String hoursdate;
 
 
-    public LocalDate getData() {
-        return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
-    }
-
-    public String getHoursdate() {
-        return hoursdate;
-    }
-
-    public void setHoursdate(String hoursdate) {
-        this.hoursdate = hoursdate;
-    }
 }

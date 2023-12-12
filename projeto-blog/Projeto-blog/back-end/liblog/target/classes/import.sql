@@ -1,0 +1,4 @@
+INSERT INTO TABELA_POSTAGENS(NOME,IMAGEM,COMENTARIO,dia_postagem,hora_postagem) VALUES ('luz noceda','livro','caminho/para/imagem1.jpg','2023-12-09','05:01:36')
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuário1', 'imagem1.jpg', 'Comentário 1', '2023-12-09', '12:30:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuário2', 'imagem2.jpg', 'Comentário 2', '2023-12-10', '14:45:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuário3', 'imagem3.jpg', 'Comentário 3', '2023-12-11', '16:00:00');
