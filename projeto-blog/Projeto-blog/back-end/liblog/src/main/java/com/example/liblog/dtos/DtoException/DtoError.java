@@ -1,6 +1,5 @@
 package com.example.liblog.dtos.DtoException;
 
-import com.example.liblog.exception.RetornoNuloException;
 import lombok.Data;
 
 @Data

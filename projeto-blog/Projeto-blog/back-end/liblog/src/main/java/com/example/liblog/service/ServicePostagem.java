@@ -2,20 +2,12 @@ package com.example.liblog.service;
 
 import com.example.liblog.dtos.DtoPostagem;
 import com.example.liblog.exception.DuplicateException;
-import com.example.liblog.exception.RetornoNuloException;
+import com.example.liblog.exception.ReturnNullException;
 import com.example.liblog.models.PostagemLivro;
 import com.example.liblog.repositorys.RepositoryPostagem;
-import org.hibernate.query.sql.internal.ParameterRecognizerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -36,11 +28,8 @@ public class ServicePostagem {
     }
 
     public DtoPostagem create(PostagemLivro postagemLivro){
-        repositoryPostagem.save(postagemLivro);
-<<<<<<< Updated upstream
         isDuplicate(postagemLivro);
-=======
->>>>>>> Stashed changes
+        repositoryPostagem.save(postagemLivro);
         return new DtoPostagem(postagemLivro);
     }
 
@@ -49,15 +38,24 @@ public class ServicePostagem {
         repositoryPostagem.delete(dto);
     }
 
+
+
     private void isNull(PostagemLivro livro){
         if(livro == null){
-            throw new RetornoNuloException("Elemento não encontrado");
+            throw new ReturnNullException("Elemento não encontrado");
         }
     }
     private void isDuplicate(PostagemLivro livro){
         List<PostagemLivro> post = repositoryPostagem.findAll().stream().toList();
-        if(post.contains(livro)){
-            throw new DuplicateException("Este valor já existe");
+        post.forEach(dto -> {
+            boolean equalsname = dto.getNome().equals(livro.getNome());
+            boolean equalscommentary = dto.getComentario().equals(livro.getComentario());
+            if(equalsname){
+                throw new DuplicateException("este nome já existe");
+            }else if (equalscommentary) {
+                throw new DuplicateException("este comentário já existe");
+            }
         }
+        );
     }
 }
