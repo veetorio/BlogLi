@@ -37,7 +37,10 @@ public class ServicePostagem {
 
     public DtoPostagem create(PostagemLivro postagemLivro){
         repositoryPostagem.save(postagemLivro);
+<<<<<<< Updated upstream
         isDuplicate(postagemLivro);
+=======
+>>>>>>> Stashed changes
         return new DtoPostagem(postagemLivro);
     }
 
