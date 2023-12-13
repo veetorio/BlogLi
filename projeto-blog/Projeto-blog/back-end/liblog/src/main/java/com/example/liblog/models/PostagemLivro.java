@@ -15,9 +15,9 @@ public class PostagemLivro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false,unique = true,length = 35)
+    @Column(nullable = false,length = 35)
     private String nome;
-    @Column(columnDefinition = "Text",nullable = false,unique = true)
+    @Column(columnDefinition = "Text",nullable = false)
     private String comentario;
     @Column(name = "imagem",columnDefinition = "Text",nullable = false)
     private String url;

@@ -1,4 +1,15 @@
-INSERT INTO TABELA_POSTAGENS(NOME,IMAGEM,COMENTARIO,dia_postagem,hora_postagem) VALUES ('luz noceda','livro','caminho/para/imagem1.jpg','2023-12-09','05:01:36')
-INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuário1', 'imagem1.jpg', 'Comentário 1', '2023-12-09', '12:30:00');
-INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuário2', 'imagem2.jpg', 'Comentário 2', '2023-12-10', '14:45:00');
-INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuário3', 'imagem3.jpg', 'Comentário 3', '2023-12-11', '16:00:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario1', 'https://i.imgur.com/abc123.jpg', 'Incrível vista da varanda!', '2023-12-01', '10:30:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario2', 'https://i.imgur.com/def456.jpg', 'Cozinha espaçosa com bancadas modernas.', '2023-12-02', '12:45:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario3', 'https://i.imgur.com/ghi789.jpg', 'Localização conveniente perto de transporte público.', '2023-12-03', '14:20:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario4', 'https://i.imgur.com/jkl012.jpg', 'Aconchegante sala de estar com lareira.', '2023-12-04', '16:10:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario5', 'https://i.imgur.com/mno345.jpg', 'Piscina perfeita para dias quentes!', '2023-12-05', '09:00:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario6', 'https://i.imgur.com/pqr678.jpg', 'Quartos iluminados e arejados.', '2023-12-06', '11:30:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario7', 'https://i.imgur.com/stu901.jpg', 'Área de lazer com jardim bem cuidado.', '2023-12-07', '15:15:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario8', 'https://i.imgur.com/vwx234.jpg', 'Banheiros modernos e elegantes.', '2023-12-08', '18:00:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario9', 'https://i.imgur.com/yza567.jpg', 'Closet espaçoso para os amantes de moda.', '2023-12-09', '20:30:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario10', 'https://i.imgur.com/bcd890.jpg', 'Espaço ideal para home office.', '2023-12-10', '22:00:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario11', 'https://i.imgur.com/efg123.jpg', 'Varanda com vista panorâmica da cidade.', '2023-12-11', '14:45:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario12', 'https://i.imgur.com/hij456.jpg', 'Design arrojado e moderno.', '2023-12-12', '17:00:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario13', 'https://i.imgur.com/klm789.jpg', 'Vizinhança tranquila e segura.', '2023-12-13', '19:30:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario14', 'https://i.imgur.com/opq012.jpg', 'Próximo a escolas e parques.', '2023-12-14', '21:15:00');
+INSERT INTO TABELA_POSTAGENS (NOME, IMAGEM, COMENTARIO, dia_postagem, hora_postagem) VALUES ('Usuario15', 'https://i.imgur.com/rst345.jpg', 'Excelente investimento para famílias.', '2023-12-15', '23:00:00');

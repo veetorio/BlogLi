@@ -1,9 +1,11 @@
 package com.example.liblog.service;
 
 import com.example.liblog.dtos.DtoPostagem;
+import com.example.liblog.exception.DuplicateException;
 import com.example.liblog.exception.RetornoNuloException;
 import com.example.liblog.models.PostagemLivro;
 import com.example.liblog.repositorys.RepositoryPostagem;
+import org.hibernate.query.sql.internal.ParameterRecognizerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -34,13 +36,8 @@ public class ServicePostagem {
     }
 
     public DtoPostagem create(PostagemLivro postagemLivro){
-        Date data = new Date();
-        String hours = new SimpleDateFormat("hh:mm:ss").format(data);
-        LocalDate date = data.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        postagemLivro.setData(date);
-        postagemLivro.setHoursdate(hours);
         repositoryPostagem.save(postagemLivro);
-
+        isDuplicate(postagemLivro);
         return new DtoPostagem(postagemLivro);
     }
 
@@ -49,14 +46,15 @@ public class ServicePostagem {
         repositoryPostagem.delete(dto);
     }
 
-
-
-
-
-
     private void isNull(PostagemLivro livro){
         if(livro == null){
             throw new RetornoNuloException("Elemento não encontrado");
+        }
+    }
+    private void isDuplicate(PostagemLivro livro){
+        List<PostagemLivro> post = repositoryPostagem.findAll().stream().toList();
+        if(post.contains(livro)){
+            throw new DuplicateException("Este valor já existe");
         }
     }
 }

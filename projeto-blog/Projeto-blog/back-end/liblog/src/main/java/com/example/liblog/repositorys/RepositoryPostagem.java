@@ -12,4 +12,7 @@ public interface RepositoryPostagem extends JpaRepository<PostagemLivro,Long> {
     @Query("from PostagemLivro p where p.nome = :nome")
     PostagemLivro findByName(@Param(value = "nome") String name);
 
+    @Query("select p from PostagemLivro p order by(id) desc")
+    public List<PostagemLivro> findAll();
+
 }
