@@ -2,14 +2,13 @@
 
 ## configuração do banco de dados
 
+caso queira testar na sua maquina, vá até a pasta de resources que está nesta rota Projeto-blog/back-end/liblog/src/main/resources
+
+ao clickar nela você irá ver um arquivo chamado "application.properties" nela você vai ter acesso a essa configuração, se caso a spring.profile.active esteja com APP_PROFILE:myHost ou ceuma, mude para h2connection
+igual ao que está abaixo
 ```
-spring.datasource.url= jdbc:mysql://localhost:3306/coloque-o-nome-de-uma-base-de-dados-mysql
-spring.datasource.username=root
-spring.datasource.password=coloque-a-senha-do-seu-mysql
-
-spring.jpa.hibernate.ddl-auto=update
-
-spring.jpa.show-sql=true
+spring.profiles.active=${APP_PROFILE:h2connection}
+spring.jpa.open-in-view=false
 ```
 
 ## Rotas principais para request :
@@ -37,3 +36,7 @@ spring.jpa.show-sql=true
 ### GET-BY-NAME 
 
 * GETByName : http://localhost:8080/blog/nome-da-postagem
+
+### DELETE
+
+* DELETE : http://localhost:8080/blog/nome-da-postagem-que-deseja-apagar
