@@ -1,11 +1,9 @@
-package com.example.liblog.dtos;
+package com.example.liblog.dto;
 
 import com.example.liblog.models.PostagemLivro;
-import jakarta.persistence.Column;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,4 +26,5 @@ public class DtoPostagem {
         this.data = postagemLivro.getData();
         this.hoursdate = postagemLivro.getHoursdate();
     }
+
 }

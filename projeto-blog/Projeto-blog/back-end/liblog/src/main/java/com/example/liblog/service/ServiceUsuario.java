@@ -1,9 +1,8 @@
 package com.example.liblog.service;
 
-import com.example.liblog.dtos.DtoPostagem;
-import com.example.liblog.dtos.DtoUsuario;
+import com.example.liblog.dto.DtoUsuario;
 import com.example.liblog.models.Usuario;
-import com.example.liblog.repositorys.RepositoryUsuario;
+import com.example.liblog.repository.RepositoryUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,4 +23,6 @@ public class ServiceUsuario {
         Usuario user = repositoryUsuario.findByNameOrEmail(name);
         return new DtoUsuario(user);
     }
+
+
 }

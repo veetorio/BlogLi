@@ -7,7 +7,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication
-public class LiblogApplication {
+public class
+LiblogApplication {
 
 	public static void main(String[] args) {SpringApplication.run(LiblogApplication.class, args);}
 

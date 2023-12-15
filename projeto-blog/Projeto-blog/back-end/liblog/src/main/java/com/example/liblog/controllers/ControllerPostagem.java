@@ -1,22 +1,17 @@
 package com.example.liblog.controllers;
 
-import com.example.liblog.dtos.DtoPostagem;
+import com.example.liblog.dto.DtoPostagem;
 import com.example.liblog.models.PostagemLivro;
 import com.example.liblog.service.ServicePostagem;
 
-import org.aspectj.lang.annotation.DeclareError;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
 
 
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/blog")

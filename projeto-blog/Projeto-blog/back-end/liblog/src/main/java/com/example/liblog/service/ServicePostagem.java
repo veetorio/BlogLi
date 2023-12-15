@@ -1,10 +1,10 @@
 package com.example.liblog.service;
 
-import com.example.liblog.dtos.DtoPostagem;
+import com.example.liblog.dto.DtoPostagem;
 import com.example.liblog.exception.DuplicateException;
 import com.example.liblog.exception.ReturnNullException;
 import com.example.liblog.models.PostagemLivro;
-import com.example.liblog.repositorys.RepositoryPostagem;
+import com.example.liblog.repository.RepositoryPostagem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +37,6 @@ public class ServicePostagem {
         PostagemLivro dto = repositoryPostagem.findByName(name);
         repositoryPostagem.delete(dto);
     }
-
-
 
     private void isNull(PostagemLivro livro){
         if(livro == null){

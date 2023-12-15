@@ -1,6 +1,6 @@
 package com.example.liblog.handlers;
 
-import com.example.liblog.dtos.DtoException.DtoError;
+import com.example.liblog.dto.DtoException.DtoError;
 import com.example.liblog.exception.DuplicateException;
 import com.example.liblog.exception.ReturnNullException;
 import org.springframework.http.HttpStatus;
