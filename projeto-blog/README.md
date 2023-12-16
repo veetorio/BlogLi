@@ -26,7 +26,7 @@ spring.jpa.open-in-view=false
     "url": "url da imagem do livro"
     "dia_postagem" : "data da postagem",
     "hora_postagem" : "horário em que a postagem foi"
-    "user" : {"id":id-do-usuario}
+    "user" : {"id": "id-do-usuario"}
 }
 ```
 
