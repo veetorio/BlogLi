@@ -24,8 +24,8 @@ spring.jpa.open-in-view=false
     "nome" : "nome do livro",
     "comentario" : "review do livro" ,
     "url": "url da imagem do livro"
-    "data" : "data da postagem",
-    "hoursdate" : "horário em que a postagem foi"
+    "dia_postagem" : "data da postagem",
+    "hora_postagem" : "horário em que a postagem foi"
 }
 ```
 
