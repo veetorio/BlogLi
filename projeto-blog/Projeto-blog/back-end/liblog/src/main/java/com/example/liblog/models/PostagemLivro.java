@@ -15,7 +15,7 @@ import java.util.List;
 public class PostagemLivro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @Column(nullable = false,length = 35)
     private String nome;
     @Column(columnDefinition = "Text",nullable = false)
@@ -30,8 +30,5 @@ public class PostagemLivro {
     @ManyToOne
     @JoinColumn(name = "id_user")
     private Usuario user;
-
-
-
 
 }

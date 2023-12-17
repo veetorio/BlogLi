@@ -1,10 +1,12 @@
 package com.example.liblog.service;
 
 import com.example.liblog.dto.DtoPostagem;
-import com.example.liblog.exception.DuplicateException;
+import com.example.liblog.exception.NotExistUserException;
 import com.example.liblog.exception.ReturnNullException;
 import com.example.liblog.models.PostagemLivro;
+import com.example.liblog.models.Usuario;
 import com.example.liblog.repository.RepositoryPostagem;
+import com.example.liblog.repository.RepositoryUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +16,14 @@ import java.util.List;
 public class ServicePostagem {
     @Autowired
     RepositoryPostagem repositoryPostagem;
+    @Autowired
+    RepositoryUsuario repositoryUsuario;
 
     public List<DtoPostagem> findAll(){
         List<PostagemLivro> listaLivros = repositoryPostagem.findAll();
         return DtoPostagem.convertListDto(listaLivros);
     }
-    
+
     public DtoPostagem findByName(String name){
        PostagemLivro livro = repositoryPostagem.findByName(name);
        isNull(livro);
@@ -28,7 +32,7 @@ public class ServicePostagem {
     }
 
     public DtoPostagem create(PostagemLivro postagemLivro){
-        isDuplicate(postagemLivro);
+        ExistUser(postagemLivro);
         repositoryPostagem.save(postagemLivro);
         return new DtoPostagem(postagemLivro);
     }
@@ -43,17 +47,8 @@ public class ServicePostagem {
             throw new ReturnNullException("Elemento não encontrado");
         }
     }
-    private void isDuplicate(PostagemLivro livro){
-        List<PostagemLivro> post = repositoryPostagem.findAll().stream().toList();
-        post.forEach(dto -> {
-            boolean equalsname = dto.getNome().equals(livro.getNome());
-            boolean equalscommentary = dto.getComentario().equals(livro.getComentario());
-            if(equalsname){
-                throw new DuplicateException("este nome já existe");
-            }else if (equalscommentary) {
-                throw new DuplicateException("este comentário já existe");
-            }
-        }
-        );
+    private void ExistUser(PostagemLivro post){
+        Usuario element = repositoryUsuario.findById(post.getUser().getId()).orElseThrow( () -> {throw new NotExistUserException("usuario não existe");});
     }
+
 }

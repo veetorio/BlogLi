@@ -13,7 +13,8 @@ import java.util.List;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "id_user")
+    private Long id;
     private String nome_usuario;
     private String senha_usuario;
     @Column(columnDefinition = "TEXT")
@@ -21,7 +22,6 @@ public class Usuario {
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<PostagemLivro> listPosts = new ArrayList<>();
-
 
 }
 

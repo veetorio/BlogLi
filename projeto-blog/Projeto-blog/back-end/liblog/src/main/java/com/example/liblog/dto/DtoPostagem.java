@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 @Data
 public class DtoPostagem {
 
+    private Long id;
     private String nome;
     private String comentario;
     private String url;
@@ -25,6 +26,7 @@ public class DtoPostagem {
         this.url = postagemLivro.getUrl();
         this.data = postagemLivro.getData();
         this.hoursdate = postagemLivro.getHoursdate();
+        this.id = postagemLivro.getUser().getId();
     }
 
 }
