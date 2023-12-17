@@ -28,6 +28,11 @@ spring.jpa.open-in-view=false
     "hora_postagem" : "horário em que a postagem foi"
     "user" : {"id": "id-do-usuario"}
 }
+{
+         "nome_usuario": "Usuaro",
+         "email": "usuario1@examcom",
+         "senha_usuario": "udskddk"
+}
 ```
 
 ### GET-ALL
