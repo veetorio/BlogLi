@@ -15,4 +15,8 @@ public interface RepositoryUsuario extends JpaRepository<Usuario,Long> {
     @Query("SELECT D FROM Usuario D WHERE D.nome_usuario = :name AND D.email = :email")
     public List<Usuario> findByNameAndEmail(@Param(value = "name") String name,@Param(value = "email")String email);
 
+    @Query("SELECT u FROM Usuario u WHERE u.nome_usuario = :name OR u.email = :name")
+    public List<Usuario> findByNameOrEmailList(@Param(value = "name") String name);
+
+
 }

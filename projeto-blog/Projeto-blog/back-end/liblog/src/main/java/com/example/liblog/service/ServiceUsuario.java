@@ -47,13 +47,10 @@ public class ServiceUsuario {
         return "usuario removido com sucesso !";
     }
     public Usuario PostAuth(Usuario user){
-        List<Usuario> list = repositoryUsuario.findByNameAndEmail(user.getNome_usuario(),user.getEmail());
-        list.forEach(usuario -> {
-            boolean existUser = usuario.getSenha_usuario().equals(user.getSenha_usuario());
-            if(!existUser){
-                throw new AuthenticateException("Erro de Authenticação");
-            }
-        });
+        Usuario usuario = repositoryUsuario.findByNameOrEmail(user.getNome_usuario());
+        if(usuario == null || usuario.getSenha_usuario() == usuario.getSenha_usuario()){
+            throw new AuthenticateException("Este usuario não existe");
+        }
         return null;
     }
 
