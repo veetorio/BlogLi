@@ -24,21 +24,21 @@ public class ServicePostagem {
         return repositoryPostagem.
                 findAll()
                 .stream()
-                .map(livro -> new DtoPost(livro.getNome(), livro.getComentario(), livro.getUrl(), livro.getData(), livro.getHoursdate()))
+                .map(DtoPost::new)
                 .toList();
     }
 
     public DtoPost findByName(String name){
        Post livro = repositoryPostagem.findByName(name);
        isNull(livro);
-       DtoPost dto = new DtoPost(livro.getNome(), livro.getComentario(), livro.getUrl(), livro.getData(), livro.getHoursdate());
+       DtoPost dto = new DtoPost(livro);
        return dto;
     }
 
     public DtoPost create(Post livro){
         ExistUser(livro);
         repositoryPostagem.save(livro);
-        DtoPost tuple_dto = new DtoPost(livro.getNome(),livro.getComentario(), livro.getUrl(), livro.getData(), livro.getHoursdate());
+        DtoPost tuple_dto = new DtoPost(livro);
         return tuple_dto;
     }
 

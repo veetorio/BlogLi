@@ -1,5 +1,6 @@
 package com.example.liblog.models;
 
+import com.example.liblog.dto.dto_response.DtoPost;
 import io.micrometer.common.KeyValues;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -61,6 +62,13 @@ public class Usuario {
 
     public void setListPosts(List<Post> listPosts) {
         this.listPosts = listPosts;
+    }
+
+    public  List<DtoPost> convert(List<Post> posts){
+        return posts
+                .stream()
+                .map(post -> new DtoPost(post))
+                .toList();
     }
 }
 

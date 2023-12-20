@@ -16,22 +16,19 @@ public class ServiceUsuario {
 
     public List<DtoUsuario> findAll(){
         List<Usuario> user = repositoryUsuario.findAll();
-        List<DtoUsuario> userDto = user
-                .stream()
-                .map(user_us -> new DtoUsuario(user_us.getNome_usuario(),user_us.getEmail(),user_us.getListPosts()))
-                .toList();
-        return userDto;
+        List<DtoUsuario> dtouser = user.stream().map(DtoUsuario::new).toList();
+        return dtouser;
     }
 
     public DtoUsuario findByNameOrUsuario(String name){
         Usuario user = repositoryUsuario.findByNameOrEmail(name);
-        DtoUsuario userDto = new DtoUsuario(user.getNome_usuario(), user.getEmail(), user.getListPosts());
+        DtoUsuario userDto = new DtoUsuario(user);
         return userDto;
     }
     public DtoUsuario create(Usuario user){
         authValueExist(user);
         repositoryUsuario.save(user);
-        DtoUsuario userDto = new DtoUsuario(user.getNome_usuario(), user.getEmail(), user.getListPosts());
+        DtoUsuario userDto = new DtoUsuario(user);
         return userDto;
     }
     public DtoUsuario update(Usuario userBefore){
@@ -41,14 +38,15 @@ public class ServiceUsuario {
         userAfter.setSenha_usuario(userBefore.getSenha_usuario());
 
         repositoryUsuario.save(userAfter);
-
-        DtoUsuario userDto = new DtoUsuario(userAfter.getNome_usuario(), userAfter.getEmail(), userAfter.getListPosts());
+        DtoUsuario userDto = new DtoUsuario(userAfter);
 
         return userDto;
     }
 
     public String delete(Long id){
-        Usuario user = repositoryUsuario.findById(id).orElseThrow();
+        Usuario user = repositoryUsuario
+                .findById(id)
+                .orElseThrow();
         repositoryUsuario.delete(user);
         return "usuario removido com sucesso !";
     }
