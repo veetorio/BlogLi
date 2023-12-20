@@ -16,7 +16,10 @@ public class ServiceUsuario {
 
     public List<DtoUsuario> findAll(){
         List<Usuario> user = repositoryUsuario.findAll();
-        List<DtoUsuario> userDto = user.stream().map(user_us -> new DtoUsuario(user_us.getNome_usuario(),user_us.getEmail(),user_us.getListPosts())).toList();
+        List<DtoUsuario> userDto = user
+                .stream()
+                .map(user_us -> new DtoUsuario(user_us.getNome_usuario(),user_us.getEmail(),user_us.getListPosts()))
+                .toList();
         return userDto;
     }
 
@@ -58,8 +61,10 @@ public class ServiceUsuario {
     }
 
     private void authValueExist(Usuario person){
-        List<Usuario> users = repositoryUsuario.findAll().stream().toList();
-
+        List<Usuario> users = repositoryUsuario
+                .findAll()
+                .stream()
+                .toList();
         users.forEach( usuario -> {
         // verificar se o usuario já não existe
             boolean inUseName = usuario.getNome_usuario().equals(person.getNome_usuario());
