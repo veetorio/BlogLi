@@ -1,9 +1,9 @@
-package com.example.liblog.handlers;
+package com.example.liblog.error.handlers;
 
-import com.example.liblog.dto.DtoException.DtoError;
-import com.example.liblog.exception.AuthenticateException;
-import com.example.liblog.exception.DuplicateException;
-import com.example.liblog.exception.ReturnNullException;
+import com.example.liblog.dto.dto_exception.DtoError;
+import com.example.liblog.error.exception.AuthenticateException;
+import com.example.liblog.error.exception.DuplicateException;
+import com.example.liblog.error.exception.ReturnNullException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

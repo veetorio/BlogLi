@@ -1,14 +1,13 @@
 package com.example.liblog.service;
 
-import com.example.liblog.dto.DtoUsuario;
-import com.example.liblog.exception.AuthenticateException;
+import com.example.liblog.dto.dto_response.DtoUsuario;
+import com.example.liblog.error.exception.AuthenticateException;
 import com.example.liblog.models.Usuario;
 import com.example.liblog.repository.RepositoryUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ServiceUsuario {
@@ -17,18 +16,20 @@ public class ServiceUsuario {
 
     public List<DtoUsuario> findAll(){
         List<Usuario> user = repositoryUsuario.findAll();
-        List<DtoUsuario> userDto = user.stream().map(DtoUsuario::new).toList();
+        List<DtoUsuario> userDto = user.stream().map(user_us -> new DtoUsuario(user_us.getNome_usuario(),user_us.getEmail(),user_us.getListPosts())).toList();
         return userDto;
     }
 
     public DtoUsuario findByNameOrUsuario(String name){
         Usuario user = repositoryUsuario.findByNameOrEmail(name);
-        return new DtoUsuario(user);
+        DtoUsuario userDto = new DtoUsuario(user.getNome_usuario(), user.getEmail(), user.getListPosts());
+        return userDto;
     }
     public DtoUsuario create(Usuario user){
         authValueExist(user);
         repositoryUsuario.save(user);
-        return new DtoUsuario(user);
+        DtoUsuario userDto = new DtoUsuario(user.getNome_usuario(), user.getEmail(), user.getListPosts());
+        return userDto;
     }
     public DtoUsuario update(Usuario userBefore){
         Usuario userAfter = repositoryUsuario.findById(userBefore.getId()).orElseThrow();
@@ -38,7 +39,9 @@ public class ServiceUsuario {
 
         repositoryUsuario.save(userAfter);
 
-        return new DtoUsuario(userAfter);
+        DtoUsuario userDto = new DtoUsuario(userAfter.getNome_usuario(), userAfter.getEmail(), userAfter.getListPosts());
+
+        return userDto;
     }
 
     public String delete(Long id){

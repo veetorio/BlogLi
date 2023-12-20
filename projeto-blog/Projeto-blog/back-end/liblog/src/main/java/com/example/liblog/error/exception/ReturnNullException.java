@@ -1,4 +1,4 @@
-package com.example.liblog.exception;
+package com.example.liblog.error.exception;
 
 import lombok.Data;
 

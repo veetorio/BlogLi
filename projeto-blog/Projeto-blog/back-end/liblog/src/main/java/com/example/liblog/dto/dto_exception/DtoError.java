@@ -1,4 +1,4 @@
-package com.example.liblog.dto.DtoException;
+package com.example.liblog.dto.dto_exception;
 
 import lombok.Data;
 

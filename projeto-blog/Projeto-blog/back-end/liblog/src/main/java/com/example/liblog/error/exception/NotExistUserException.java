@@ -1,4 +1,4 @@
-package com.example.liblog.exception;
+package com.example.liblog.error.exception;
 
 public class NotExistUserException extends RuntimeException{
     public NotExistUserException(String message) {

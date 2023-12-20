@@ -1,4 +1,4 @@
-package com.example.liblog.configuration;
+package com.example.liblog.configuration.config_cors;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

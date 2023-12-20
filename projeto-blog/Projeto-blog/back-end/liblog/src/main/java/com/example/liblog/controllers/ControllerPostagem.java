@@ -1,7 +1,7 @@
 package com.example.liblog.controllers;
 
-import com.example.liblog.dto.DtoPostagem;
-import com.example.liblog.models.PostagemLivro;
+import com.example.liblog.dto.dto_response.DtoPost;
+import com.example.liblog.models.Post;
 import com.example.liblog.service.ServicePostagem;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,18 +22,18 @@ public class ControllerPostagem {
     ServicePostagem servicePostagem;
 
     @GetMapping
-    public ResponseEntity<List<DtoPostagem>> findAll() {
+    public ResponseEntity<List<DtoPost>> findAll() {
         return ResponseEntity.status(200).body(servicePostagem.findAll());
     }
 
     @GetMapping("/{name}")
-    public ResponseEntity<DtoPostagem> findByName(@PathVariable(value = "name") String name) {
-        DtoPostagem returndto = servicePostagem.findByName(name);
+    public ResponseEntity<DtoPost> findByName(@PathVariable(value = "name") String name) {
+        DtoPost returndto = servicePostagem.findByName(name);
         return ResponseEntity.status(200).body(returndto);
     }
 
     @PostMapping
-    public ResponseEntity<DtoPostagem> create(@RequestBody PostagemLivro postagemLivro) {
+    public ResponseEntity<DtoPost> create(@RequestBody Post postagemLivro) {
         return ResponseEntity.status(201).body(servicePostagem.create(postagemLivro));
     }
 
