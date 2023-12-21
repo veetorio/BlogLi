@@ -2,12 +2,14 @@ package com.example.liblog.service;
 
 import com.example.liblog.dto.dto_response.DtoUsuario;
 import com.example.liblog.error.exception.AuthenticateException;
+import com.example.liblog.error.exception.ReturnNullException;
 import com.example.liblog.models.Usuario;
 import com.example.liblog.repository.RepositoryUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ServiceUsuario {
@@ -21,8 +23,8 @@ public class ServiceUsuario {
     }
 
     public DtoUsuario findByNameOrUsuario(String name){
-        Usuario user = repositoryUsuario.findByNameOrEmail(name);
-        DtoUsuario userDto = new DtoUsuario(user);
+        Optional<Usuario> user = repositoryUsuario.findByNameOrEmail(name);
+        DtoUsuario userDto = new DtoUsuario(user.get());
         return userDto;
     }
     public DtoUsuario create(Usuario user){
@@ -50,19 +52,21 @@ public class ServiceUsuario {
         repositoryUsuario.delete(user);
         return "usuario removido com sucesso !";
     }
-    public Usuario PostAuth(Usuario user){
-        Usuario usuario = repositoryUsuario.findByNameOrEmail(user.getNome_usuario());
-        if(usuario == null || usuario.getSenha_usuario() == usuario.getSenha_usuario()){
-            throw new AuthenticateException("Este usuario não existe");
-        }
-        return null;
+    public Usuario PostAuth(Usuario user)  {
+        Usuario usuario = repositoryUsuario.findByNameOrEmail(user.getNome_usuario()).orElseThrow( () ->  new AuthenticateException("Este usuario não existe"));
+
+        if(!usuario.getSenha_usuario().equals(user.getSenha_usuario())){throw new AuthenticateException("senha não correspondente");}
+
+        return user;
     }
+
 
     private void authValueExist(Usuario person){
         List<Usuario> users = repositoryUsuario
                 .findAll()
                 .stream()
                 .toList();
+
         users.forEach( usuario -> {
         // verificar se o usuario já não existe
             boolean inUseName = usuario.getNome_usuario().equals(person.getNome_usuario());
