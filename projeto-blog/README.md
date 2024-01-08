@@ -21,12 +21,13 @@ spring.jpa.open-in-view=false
 
 ```javascript
 {
-    "nome" : "nome do livro",
-    "comentario" : "review do livro" ,
-    "url": "url da imagem do livro"
-    "dia_postagem" : "data da postagem",
-    "hora_postagem" : "horário em que a postagem foi"
-    "user" : {"id": "id-do-usuario"}
+ 
+    "nome" : "nome do livro1",
+    "comentario" : "review do livro1" ,
+    "url": "url da imagem do livro",
+    "data" : "2023-04-01",
+    "hoursdate" : "23:23:01",
+    "user" : {"id": 1 }
 }
 {
          "nome_usuario": "Usuaro",
