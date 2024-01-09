@@ -48,7 +48,7 @@ spring.jpa.open-in-view=false
 
 * DELETE : http://localhost:8080/blog/nome-da-postagem-que-deseja-apagar
 
-## Rotas principais para request de Post:
+## Rotas principais para request de Usuario:
 
 ### POST
 
@@ -57,15 +57,6 @@ spring.jpa.open-in-view=false
 #### corpo do post 
 
 ```javascript
-{
- 
-    "nome" : "nome do livro1",
-    "comentario" : "review do livro1" ,
-    "url": "url da imagem do livro",
-    "data" : "2023-04-01",
-    "hoursdate" : "23:23:01",
-    "user" : {"id": 1 }
-}
 {
          "nome_usuario": "Usuaro",
          "email": "usuario1@examcom",
@@ -84,6 +75,23 @@ spring.jpa.open-in-view=false
 ### DELETE
 
 * DELETE : http://localhost:8080/blog/nome-da-postagem-que-deseja-apagar
+
+
+
+
+  ### Autenticação
+
+  * Auth : http://localhost:8080/authUser
+  * method : Post
+ 
+##corpo da autenticação
+```json
+{
+    "dataSearchName" : "usuario1@example.com",
+    "dataSearchPassword" : "senha123"
+}
+```
+  
 
 
 
