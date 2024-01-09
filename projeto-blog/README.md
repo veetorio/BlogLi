@@ -43,8 +43,9 @@ spring.jpa.open-in-view=false
 
 * DELETE : http://localhost:8080/blog/nome-da-postagem-que-deseja-apagar
 
-### PUT para o usuario : 
+### PUT : 
  ```json
+    "id" : "id-do-usuario",
     "nome" : "nome do livro1",
     "comentario" : "review do livro1" ,
     "url": "url da imagem do livro",
