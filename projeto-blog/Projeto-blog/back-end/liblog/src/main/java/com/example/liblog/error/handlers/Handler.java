@@ -26,7 +26,7 @@ public class Handler {
     @ResponseBody
     @ExceptionHandler(AuthenticateException.class)
     public ResponseEntity<DtoError> errorAuthenticate(AuthenticateException error_auth){
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new DtoError(error_auth.getMessage(),HttpStatus.FORBIDDEN.value()));
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new DtoError(error_auth.getMessage(),HttpStatus.UNAUTHORIZED.value()));
     }
 
 

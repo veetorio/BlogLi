@@ -1,5 +1,6 @@
 package com.example.liblog.controllers;
 
+import com.example.liblog.dto.so.SoUser;
 import com.example.liblog.models.Usuario;
 import com.example.liblog.service.ServiceUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +35,6 @@ public class ControllerUsuario {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable(value = "id") Long id){
         return ResponseEntity.status(200).body(serviceUsuario.delete(id));
-    }
-
-    @PostMapping("/authenticate")
-    public ResponseEntity authenticate(@RequestBody Usuario user){
-        return ResponseEntity.status(HttpStatus.OK).body(serviceUsuario.PostAuth(user));
     }
 }
 

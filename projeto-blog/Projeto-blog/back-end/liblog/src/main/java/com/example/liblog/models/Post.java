@@ -27,9 +27,4 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "id_user")
     private Usuario user;
-
-    @Override
-    public Post clone() throws CloneNotSupportedException {
-        return (Post) super.clone();
-    }
 }
