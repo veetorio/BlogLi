@@ -43,7 +43,16 @@ spring.jpa.open-in-view=false
 
 * DELETE : http://localhost:8080/blog/nome-da-postagem-que-deseja-apagar
 
+### PUT para o usuario : 
+ ```json
+    "nome" : "nome do livro1",
+    "comentario" : "review do livro1" ,
+    "url": "url da imagem do livro",
+    "data" : "2023-04-01",
+    "hoursdate" : "23:23:01",
+    "user" : {"id": 1 }
 
+```
 
 
 ## Rotas principais para request de Usuario:
@@ -72,24 +81,18 @@ spring.jpa.open-in-view=false
 
 ### DELETE
 
-* DELETE : http://localhost:8080//nome-da-postagem-que-deseja-apagar
+* DELETE : http://localhost:8080/usuarios/nome-da-postagem-que-deseja-apagar
 
 ### PUT 
 * corpo do put
 ```
-
-
-
-
-
-
-
+{
+         "id" : 1,
+         "nome_usuario": "Usuao",
+         "email": "usuario1@examcom",
+         "senha_usuario": "udskddk"
+}
 ```
-
-
-
-
-
   ### Autenticação
 
   * Auth : http://localhost:8080/authUser
