@@ -24,6 +24,14 @@ public class Usuario {
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Post> listPosts = new ArrayList<>();
 
+    public String getNome_usuario() {
+        return nome_usuario;
+    }
+
+    public String getSenha_usuario() {
+        return senha_usuario;
+    }
+
     public  List<DtoPost> convert(List<Post> posts){
         return posts
                 .stream()
