@@ -19,7 +19,7 @@ spring.jpa.open-in-view=false
   
 #### corpo do post 
 
-```javascript
+```json
 {
  
     "nome" : "nome do livro1",
@@ -29,11 +29,6 @@ spring.jpa.open-in-view=false
     "hoursdate" : "23:23:01",
     "user" : {"id": 1 }
 }
-{
-         "nome_usuario": "Usuaro",
-         "email": "usuario1@examcom",
-         "senha_usuario": "udskddk"
-}
 ```
 
 ### GET-ALL
@@ -47,16 +42,19 @@ spring.jpa.open-in-view=false
 ### DELETE
 
 * DELETE : http://localhost:8080/blog/nome-da-postagem-que-deseja-apagar
+
+
+
 
 ## Rotas principais para request de Usuario:
 
 ### POST
 
-* POST : http://localhost:8080/blog
+* POST : http://localhost:8080/usuarios
   
 #### corpo do post 
 
-```javascript
+```json
 {
          "nome_usuario": "Usuaro",
          "email": "usuario1@examcom",
@@ -66,15 +64,28 @@ spring.jpa.open-in-view=false
 
 ### GET-ALL
 
-* GET : http://localhost:8080/blog
+* GET : http://localhost:8080/usuarios
 
 ### GET-BY-NAME 
 
-* GETByName : http://localhost:8080/blog/nome-da-postagem
+* GETByName : http://localhost:8080/usuarios/nome-do-usuario
 
 ### DELETE
 
-* DELETE : http://localhost:8080/blog/nome-da-postagem-que-deseja-apagar
+* DELETE : http://localhost:8080//nome-da-postagem-que-deseja-apagar
+
+### PUT 
+* corpo do put
+```
+
+
+
+
+
+
+
+```
+
 
 
 
@@ -87,7 +98,7 @@ spring.jpa.open-in-view=false
 ##corpo da autenticação
 ```json
 {
-    "dataSearchName" : "usuario1@example.com",
+    "dataSearchName" : "nome-ou-usuario",
     "dataSearchPassword" : "senha123"
 }
 ```
