@@ -1,15 +1,19 @@
 package com.example.liblog.service;
 
 import com.example.liblog.dto.dto_response.DtoPost;
+import com.example.liblog.dto.dto_response.DtoUsuario;
 import com.example.liblog.error.exception.NotExistUserException;
 import com.example.liblog.error.exception.ReturnNullException;
 import com.example.liblog.models.Post;
 import com.example.liblog.models.Usuario;
 import com.example.liblog.repository.RepositoryPostagem;
 import com.example.liblog.repository.RepositoryUsuario;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,6 +49,28 @@ public class ServicePostagem {
     public void delete(String name){
         Post dto = repositoryPostagem.findByName(name);
         repositoryPostagem.delete(dto);
+    }
+
+    @SneakyThrows
+    public DtoPost[] update(Post post){
+        Post entityAfter = repositoryPostagem.findById(post.getId()).orElseThrow( () -> new NotExistUserException("este post não existe"));
+
+        DtoPost dtoBafore = new DtoPost(entityAfter);
+
+
+        entityAfter.setComentario(post.getComentario());
+        entityAfter.setNome(post.getNome());
+        entityAfter.setUrl(post.getUrl());
+
+        repositoryPostagem.save(entityAfter);
+
+        DtoPost dtoAfter = new DtoPost(entityAfter);
+
+        DtoPost[] arrayPost = new DtoPost[2];
+        arrayPost[0] = dtoBafore;
+        arrayPost[1] = dtoAfter;
+
+        return arrayPost;
     }
 
     private void isNull(Post livro){

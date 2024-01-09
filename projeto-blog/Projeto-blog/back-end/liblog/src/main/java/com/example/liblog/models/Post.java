@@ -28,59 +28,8 @@ public class Post {
     @JoinColumn(name = "id_user")
     private Usuario user;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public LocalDate getData() {
-        return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
-    }
-
-    public String getHoursdate() {
-        return hoursdate;
-    }
-
-    public void setHoursdate(String hoursdate) {
-        this.hoursdate = hoursdate;
-    }
-
-    public Usuario getUser() {
-        return user;
-    }
-
-    public void setUser(Usuario user) {
-        this.user = user;
+    @Override
+    public Post clone() throws CloneNotSupportedException {
+        return (Post) super.clone();
     }
 }

@@ -5,6 +5,7 @@ import com.example.liblog.models.Post;
 import com.example.liblog.service.ServicePostagem;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class ControllerPostagem {
     }
 
     @GetMapping("/{name}")
-    public ResponseEntity<DtoPost> findByName(@PathVariable(value = "name") String name) {
+    public ResponseEntity findByName(@PathVariable(value = "name") String name) {
         DtoPost returndto = servicePostagem.findByName(name);
         return ResponseEntity.status(200).body(returndto);
     }
@@ -41,6 +42,11 @@ public class ControllerPostagem {
     public ResponseEntity deleteByName(@PathVariable(value = "name") String name){
         servicePostagem.delete(name);
         return ResponseEntity.status(200).body("objeto deletado com sucesso");
+    }
+
+    @PutMapping
+    public  ResponseEntity update(@RequestBody Post postBefore){
+        return ResponseEntity.status(HttpStatus.OK).body(servicePostagem.update(postBefore));
     }
 
 }
