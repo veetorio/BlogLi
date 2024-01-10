@@ -38,6 +38,11 @@ public class Usuario {
                 .map(post -> new DtoPost(post))
                 .toList();
     }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }
 
 
