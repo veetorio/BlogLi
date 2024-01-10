@@ -1,6 +1,7 @@
 package com.example.liblog.models;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,8 +20,10 @@ public class Post {
     private String comentario;
     @Column(name = "imagem",columnDefinition = "Text",nullable = false)
     private String url;
+
+
     @Column(name = "dia_postagem")
-    private LocalDate data;
+    private String data;
     @Column(name = "hora_postagem",length = 12)
     private String hoursdate;
 
