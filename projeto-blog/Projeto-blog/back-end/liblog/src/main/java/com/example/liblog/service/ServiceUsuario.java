@@ -4,12 +4,12 @@ import com.example.liblog.dto.dto_response.DtoUsuario;
 import com.example.liblog.dto.so.SoUser;
 import com.example.liblog.error.exception.AuthenticateException;
 import com.example.liblog.error.exception.NotExistUserException;
-import com.example.liblog.error.exception.ReturnNullException;
 import com.example.liblog.models.Usuario;
 import com.example.liblog.repository.RepositoryUsuario;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+
 
 import java.util.List;
 
@@ -54,7 +54,7 @@ public class ServiceUsuario {
         repositoryUsuario.delete(user);
         return "usuario removido com sucesso !";
     }
-    public DtoUsuario PostAuth(@NotNull SoUser soUser)  {
+    public DtoUsuario PostAuth(SoUser soUser)  {
         Usuario usuario = repositoryUsuario.findByNameOrEmail(soUser.getDataSearchName());
         NotExistUserException.NotNullObject(usuario);
         AuthenticateException.ValidateUser(usuario,soUser);
