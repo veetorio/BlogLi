@@ -5,7 +5,7 @@ import com.example.liblog.models.Post;
 import java.time.LocalDate;
 
 
-public record DtoPost(String title, String comentario, String url, LocalDate data, String hoursdate,String IdN) {
+public record DtoPost(String title, String comentario, String url, String data, String hoursdate,String IdN) {
     public DtoPost(Post post){
         this(
                 post.getNome()
