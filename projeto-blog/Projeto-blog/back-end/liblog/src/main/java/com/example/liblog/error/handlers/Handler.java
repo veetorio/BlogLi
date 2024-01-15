@@ -3,10 +3,13 @@ package com.example.liblog.error.handlers;
 import com.example.liblog.dto.dto_exception.DtoError;
 import com.example.liblog.error.exception.AuthenticateException;
 import com.example.liblog.error.exception.DuplicateException;
+import com.example.liblog.error.exception.NotExistUserException;
 import com.example.liblog.error.exception.ReturnNullException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.NoSuchElementException;
 
 
 @RestControllerAdvice
@@ -27,6 +30,13 @@ public class Handler {
     @ExceptionHandler(AuthenticateException.class)
     public ResponseEntity<DtoError> errorAuthenticate(AuthenticateException error_auth){
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new DtoError(error_auth.getMessage(),HttpStatus.UNAUTHORIZED.value()));
+    }
+
+
+    @ResponseBody
+    @ExceptionHandler(NotExistUserException.class)
+    public ResponseEntity<DtoError> NoCatalog(NotExistUserException elementNoCatalog){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new DtoError(elementNoCatalog.getMessage(),HttpStatus.NOT_FOUND.value()));
     }
 
 

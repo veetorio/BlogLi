@@ -1,91 +1,53 @@
 package com.example.liblog.service;
 
 import com.example.liblog.dto.dto_response.DtoUsuario;
+import com.example.liblog.dto.dto_response.Response;
 import com.example.liblog.dto.so.SoUser;
-import com.example.liblog.error.exception.AuthenticateException;
 import com.example.liblog.error.exception.NotExistUserException;
 import com.example.liblog.models.Usuario;
 import com.example.liblog.repository.RepositoryUsuario;
+import com.example.liblog.service.util.SimplifierAction;
+import com.example.liblog.service.util.Validates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 
 import java.util.List;
 
 @Service
-public class ServiceUsuario {
+public class ServiceUsuario implements Validates,SimplifierAction {
     @Autowired
     RepositoryUsuario repositoryUsuario;
 
     public List<DtoUsuario> findAll(){
         List<Usuario> user = repositoryUsuario.findAll();
-        List<DtoUsuario> dtouser = user.stream().map(DtoUsuario::new).toList();
-        return dtouser;
+        return listInDtoUsuario(user);
     }
-
-    public DtoUsuario findByNameOrUsuario(String name){
-        Usuario user = repositoryUsuario.findByNameOrEmail(name);
-        DtoUsuario userDto = new DtoUsuario(user);
-        return userDto;
+    public List findByNameOrUsuario(String name){
+        List user = repositoryUsuario.findByContentValue(name);
+        Exist(user);
+        return listInDtoUsuario(user);
     }
     public DtoUsuario create(Usuario user){
-        authValueExist(user);
-        repositoryUsuario.save(user);
-        DtoUsuario userDto = new DtoUsuario(user);
-        return userDto;
+        ExistIntoTable(repositoryUsuario,user);// verifica se ele já existe
+        repositoryUsuario.save(user);// guardar o user no banco de dados
+        return UsuarioInDtoUsuario(user);
     }
     public DtoUsuario update(Usuario userBefore){
-        Usuario userAfter = repositoryUsuario.findById(userBefore.getId()).orElseThrow();
-        userAfter.setNome_usuario(userBefore.getNome_usuario());
-        userAfter.setEmail(userBefore.getEmail());
-        userAfter.setSenha_usuario(userBefore.getSenha_usuario());
-
-        repositoryUsuario.save(userAfter);
-        DtoUsuario userDto = new DtoUsuario(userAfter);
-
-        return userDto;
+        Usuario userAfter = repositoryUsuario.findById(userBefore.getId()).orElseThrow(() -> new NotExistUserException("usuario não existe"));
+        Usuario user = (Usuario) setterUpdate(userBefore,userAfter);
+        repositoryUsuario.save(user);
+        return UsuarioInDtoUsuario(user);
     }
-
-    public String delete(Long id){
-        Usuario user = repositoryUsuario
-                .findById(id)
-                .orElseThrow();
+    public Response delete(Long id){
+        Usuario user = repositoryUsuario.findById(id).orElseThrow(() -> new NotExistUserException("Usuario não encontrado"));
         repositoryUsuario.delete(user);
-        return "usuario removido com sucesso !";
+        return new Response("Usuario removido");
     }
     public DtoUsuario PostAuth(SoUser soUser)  {
         Usuario usuario = repositoryUsuario.findByNameOrEmail(soUser.getDataSearchName());
-        NotExistUserException.NotNullObject(usuario);
-        AuthenticateException.ValidateUser(usuario,soUser);
+        Exist(usuario);
+        Auth(usuario,soUser);
         return new DtoUsuario(usuario);
     }
-
-
-    private void authValueExist(Usuario person){
-        List<Usuario> users = repositoryUsuario
-                .findAll()
-                .stream()
-                .toList();
-
-        users.forEach( usuario -> {
-        // verificar se o usuario já não existe
-            boolean inUseName = usuario.getNome_usuario().equals(person.getNome_usuario());
-        // verificar se o email já existe
-            boolean inUseEmail = usuario.getEmail().equals(person.getEmail());
-            if (inUseName){
-                throw new AuthenticateException("não é possivel de dar proseguimento,pois o nome já está em uso");
-            } else if (inUseEmail) {
-                throw new AuthenticateException("não é possivel dar proseguimento");
-
-            }
-                }
-        );
-    }
-
-
-
-
-
-
 }

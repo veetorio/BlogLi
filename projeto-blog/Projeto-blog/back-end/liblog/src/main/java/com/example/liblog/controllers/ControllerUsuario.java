@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @RequestMapping(value = "/usuarios")
 public class ControllerUsuario {
@@ -31,10 +30,8 @@ public class ControllerUsuario {
     public ResponseEntity updateUser(@RequestBody Usuario usuario){
         return ResponseEntity.status(202).body(serviceUsuario.update(usuario));
     }
-
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable(value = "id") Long id){
+    public ResponseEntity deleteUser(@PathVariable(value = "id") Long id){
         return ResponseEntity.status(200).body(serviceUsuario.delete(id));
     }
 }
-

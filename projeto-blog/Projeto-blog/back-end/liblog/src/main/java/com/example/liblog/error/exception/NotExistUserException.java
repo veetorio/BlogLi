@@ -1,6 +1,10 @@
 package com.example.liblog.error.exception;
 
-public class NotExistUserException extends RuntimeException{
+
+
+
+
+public class NotExistUserException extends RuntimeException  {
     public NotExistUserException(String message) {
         super(message);
     }
@@ -10,4 +14,6 @@ public class NotExistUserException extends RuntimeException{
             throw new NotExistUserException("Usuário não encontrado");
         }
     }
+
+
 }

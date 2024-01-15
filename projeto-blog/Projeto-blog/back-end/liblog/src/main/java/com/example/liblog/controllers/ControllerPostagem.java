@@ -29,7 +29,7 @@ public class ControllerPostagem {
 
     @GetMapping("/{name}")
     public ResponseEntity findByName(@PathVariable(value = "name") String name) {
-        DtoPost returndto = servicePostagem.findByName(name);
+        List returndto = servicePostagem.findByName(name);
         return ResponseEntity.status(200).body(returndto);
     }
 
@@ -38,9 +38,9 @@ public class ControllerPostagem {
         return ResponseEntity.status(201).body(servicePostagem.create(postagemLivro));
     }
 
-    @DeleteMapping("/{name}")
-    public ResponseEntity deleteByName(@PathVariable(value = "name") String name){
-        servicePostagem.delete(name);
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteByName(@PathVariable(value = "id") Long id){
+        servicePostagem.delete(id);
         return ResponseEntity.status(200).body("objeto deletado com sucesso");
     }
 

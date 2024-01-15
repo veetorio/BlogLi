@@ -1,6 +1,7 @@
 package com.example.liblog.models;
 
 
+import com.example.liblog.service.util.SimplifierAction;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -8,11 +9,11 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_postagens")
-public class Post {
+public class Post implements SimplifierAction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false,length = 35)
+    @Column(nullable = false,length = 65)
     private String nome;
     @Column(columnDefinition = "TEXT",nullable = false)
     private String comentario;

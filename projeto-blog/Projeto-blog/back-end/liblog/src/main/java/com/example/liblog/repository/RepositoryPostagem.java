@@ -5,13 +5,18 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.xml.namespace.QName;
 import java.util.List;
 
 public interface RepositoryPostagem extends JpaRepository<Post,Long> {
     @Query("from Post p where p.nome = :nome")
     Post findByName(@Param(value = "nome") String name);
 
-    @Query("select p from Post p")
+    @Query("SELECT p FROM Post p ORDER BY p.id DESC")
     public List<Post> findAll();
+
+    @Query("SELECT p FROM Post p WHERE p.nome LIKE %?1%")
+    public List<Post> findByNameContaining(String name);
+
 
 }
