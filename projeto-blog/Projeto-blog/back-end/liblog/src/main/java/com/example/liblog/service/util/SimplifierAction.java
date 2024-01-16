@@ -8,7 +8,6 @@ import javax.lang.model.element.Element;
 
 public interface SimplifierAction extends Convert {
     default Object setterUpdate(Object updates,Object objectafter){
-
         switch (updates.getClass().getSimpleName()) {
             case "Usuario":
                 Usuario element = (Usuario) updates;// user com atualizações

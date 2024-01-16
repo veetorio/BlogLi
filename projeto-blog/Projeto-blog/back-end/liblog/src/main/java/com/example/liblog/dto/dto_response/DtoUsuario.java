@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public record DtoUsuario(String name,String email,List<DtoPost> mypost,Boolean auth){
+public record DtoUsuario(String name,String email,List<DtoPost> mypost,String pathProfile,String pathBanner,Boolean auth){
 
     public DtoUsuario(Usuario usuario){
-        this(usuario.getNome_usuario(), usuario.getEmail(),usuario.listInDtoPost(usuario.getListPosts()),true);
+        this(usuario.getNome_usuario(), usuario.getEmail(),usuario.listInDtoPost(usuario.getListPosts()),usuario.getPath_banner(),usuario.getPath_profile(),true);
     }
 }

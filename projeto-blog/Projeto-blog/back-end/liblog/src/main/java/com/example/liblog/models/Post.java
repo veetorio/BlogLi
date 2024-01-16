@@ -19,6 +19,11 @@ public class Post implements SimplifierAction {
     private String comentario;
     @Column(name = "imagem",columnDefinition = "Text",nullable = false)
     private String url;
+    @Column(columnDefinition = "TEXT")
+    private String pathBanner;
+
+
+
 
 
     @Column(name = "dia_postagem")
@@ -29,4 +34,8 @@ public class Post implements SimplifierAction {
     @ManyToOne
     @JoinColumn(name = "id_user")
     private Usuario user;
+
+    public String getPathBanner() {
+        return pathBanner;
+    }
 }

@@ -1,7 +1,6 @@
 package com.example.liblog.controllers;
 
 
-import com.example.liblog.dto.dto_response.DtoUsuario;
 import com.example.liblog.dto.so.SoUser;
 import com.example.liblog.service.ServiceUsuario;
 import org.springframework.beans.factory.annotation.Autowired;

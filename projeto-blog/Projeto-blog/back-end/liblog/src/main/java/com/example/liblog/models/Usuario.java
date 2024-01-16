@@ -20,10 +20,25 @@ public class Usuario implements Convert {
     private String nome_usuario;
     private String senha_usuario;
     @Column(columnDefinition = "TEXT")
+    private String path_profile;
+
+    @Column(columnDefinition = "TEXT")
+    private String path_banner;
+
+    @Column(columnDefinition = "TEXT")
     private String email;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Post> listPosts = new ArrayList<>();
+
+    public String getPath_profile() {
+        return path_profile;
+    }
+
+    public String getPath_banner() {
+        return path_banner;
+    }
+
 }
 
 
