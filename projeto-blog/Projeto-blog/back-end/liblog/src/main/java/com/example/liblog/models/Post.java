@@ -19,13 +19,11 @@ public class Post implements SimplifierAction {
     private String comentario;
     @Column(name = "imagem",columnDefinition = "Text",nullable = false)
     private String url;
+
+    @Column(name = "slugtitle")
+    private String slugTitle;
     @Column(columnDefinition = "TEXT")
     private String pathBanner;
-
-
-
-
-
     @Column(name = "dia_postagem")
     private String data;
     @Column(name = "hora_postagem",length = 12)
@@ -35,7 +33,33 @@ public class Post implements SimplifierAction {
     @JoinColumn(name = "id_user")
     private Usuario user;
 
+
+    public String getSlugName() {
+        return slugTitle;
+    }
+
+    public void setSlugName(String slugName) {
+        this.slugTitle = slugName;
+
+    }
+
+    public String getSlugTitle() {
+        return slugTitle;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
     public String getPathBanner() {
         return pathBanner;
+    }
+
+    public String getComentario() {
+        return comentario;
     }
 }

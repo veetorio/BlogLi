@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.*;
 public class ControllerUsuario {
     @Autowired
     ServiceUsuario serviceUsuario;
+
     @GetMapping
-    public ResponseEntity findAll() {
+    public ResponseEntity findAll(@RequestHeader(value = "token") String token) {
         return ResponseEntity.status(200).body(serviceUsuario.findAll());
     }
+
     @GetMapping("/{name}")
     public ResponseEntity findByNameOrEmail(@PathVariable(value = "name") String name){
         return ResponseEntity.status(200).body(serviceUsuario.findByNameOrUsuario(name));

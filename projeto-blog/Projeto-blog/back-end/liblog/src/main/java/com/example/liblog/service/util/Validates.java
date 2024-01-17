@@ -42,13 +42,16 @@ public interface Validates{
                 }
         );
     }
-    default void Auth(Usuario tuple, SoUser newTuple){
+    default void IsAuth(Usuario tuple, SoUser newTuple){
         if (!(tuple.getSenha_usuario().equals(newTuple.getDataSearchPassword()))) throw new AuthenticateException("Este usuario não é autenticado");
     }
-    default Boolean IsAuth(Boolean auth,Object object){
-
-
-        return true;
+    default void IsAuthorized(String token,String name,RepositoryUsuario repositoryUsuario){
+        Usuario user = repositoryUsuario.findByNameOrEmail(name);
+        Exist(user);
+        if(!user.getToken().equals(token)){
+            throw new AuthenticateException("Não autorizado");
+        }
     }
+
 }
 

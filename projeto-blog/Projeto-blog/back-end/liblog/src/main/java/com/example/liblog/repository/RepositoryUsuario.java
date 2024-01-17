@@ -22,5 +22,8 @@ public interface RepositoryUsuario extends JpaRepository<Usuario,Long> {
     @Query("SELECT u FROM Usuario u WHERE u.nome_usuario LIKE %?1% OR u.email LIKE %?1%")
     public List findByContentValue(String name);
 
+    @Query("SELECT u FROM Usuario u WHERE u.token = :token")
+    public Usuario findByToken(String token);
+
 
 }

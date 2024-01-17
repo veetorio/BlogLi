@@ -5,6 +5,7 @@ import com.example.liblog.models.Post;
 import com.example.liblog.models.Usuario;
 
 import javax.lang.model.element.Element;
+import java.util.Random;
 
 public interface SimplifierAction extends Convert {
     default Object setterUpdate(Object updates,Object objectafter){
@@ -41,5 +42,17 @@ public interface SimplifierAction extends Convert {
         return value
                 .replaceAll("-"," ")
                 .substring(0,value.length() - 6);
+    }
+    default StringBuilder GeneratedKey(){
+        Random rand = new Random();
+        String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$#*?!";
+
+        StringBuilder token = new StringBuilder();
+        for (int i = 0;i < 10;i++){
+            int position = rand.nextInt(token.length() + 1);
+            char letter = alpha.charAt(rand.nextInt(alpha.length()));
+            token.insert(position,letter);
+        }
+        return token;
     }
 }

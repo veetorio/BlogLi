@@ -21,12 +21,14 @@ public class Usuario implements Convert {
     private String senha_usuario;
     @Column(columnDefinition = "TEXT")
     private String path_profile;
-
     @Column(columnDefinition = "TEXT")
     private String path_banner;
 
     @Column(columnDefinition = "TEXT")
     private String email;
+
+    @Column(length = 16)
+    private String token;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Post> listPosts = new ArrayList<>();
@@ -37,6 +39,14 @@ public class Usuario implements Convert {
 
     public String getPath_banner() {
         return path_banner;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
 }

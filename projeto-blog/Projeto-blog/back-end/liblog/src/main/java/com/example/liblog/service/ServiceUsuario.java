@@ -30,6 +30,7 @@ public class ServiceUsuario implements Validates,SimplifierAction {
     }
     public DtoUsuario create(Usuario user){
         ExistIntoTable(repositoryUsuario,user);// verifica se ele já existe
+        user.setToken(GeneratedKey().toString());
         repositoryUsuario.save(user);// guardar o user no banco de dados
         return UsuarioInDtoUsuario(user);
     }
@@ -47,7 +48,7 @@ public class ServiceUsuario implements Validates,SimplifierAction {
     public DtoUsuario PostAuth(SoUser soUser)  {
         Usuario usuario = repositoryUsuario.findByNameOrEmail(soUser.getDataSearchName());
         Exist(usuario);
-        Auth(usuario,soUser);
+        IsAuth(usuario,soUser);
         return new DtoUsuario(usuario);
     }
 }
