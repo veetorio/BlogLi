@@ -3,9 +3,10 @@ package com.example.liblog.dto.dto_response;
 import com.example.liblog.models.Post;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 
-public record DtoPost(String title, String comentario, String pathIcon,String pathBanner ,String data, String hoursdate) {
+public record DtoPost(String title, String comentario, String pathIcon, String pathBanner , String data, String hoursdate) {
     public DtoPost(Post post){
         this(
                 post.getNome() + post.getId(),
@@ -13,7 +14,8 @@ public record DtoPost(String title, String comentario, String pathIcon,String pa
                 post.getUrl(),
                 post.getPathBanner(),
                 post.getData(),
-                post.getHoursdate());
+                post.getHoursdate()
+        );
 
     }
 }

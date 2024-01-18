@@ -1,8 +1,6 @@
 package com.example.liblog.service;
 
 import com.example.liblog.dto.dto_response.DtoPost;
-import com.example.liblog.dto.so.SoUser;
-import com.example.liblog.error.exception.NotExistUserException;
 import com.example.liblog.models.Post;
 import com.example.liblog.models.Usuario;
 import com.example.liblog.repository.RepositoryPostagem;
@@ -10,12 +8,11 @@ import com.example.liblog.repository.RepositoryUsuario;
 import com.example.liblog.service.util.SimplifierAction;
 import com.example.liblog.service.util.Validates;
 import com.github.slugify.Slugify;
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
 @Service
 public class ServicePostagem implements Validates, SimplifierAction {
     @Autowired
@@ -34,7 +31,11 @@ public class ServicePostagem implements Validates, SimplifierAction {
         return listInDtoPost(post);
     }
     public DtoPost create(Post livro){
-        livro.setSlugName(slug.slugify(livro.getNome()));
+        Usuario user = repositoryUsuario.findById(livro.getUser().getId()).orElseThrow();
+        livro.setSlugTitle(slug.slugify(livro.getNome()));
+        livro.setTokenuser(user.getToken());
+        livro.setHoursdate(setTiming());
+        livro.setData(setDate());
         repositoryPostagem.save(livro);
         return postInDtoPost(livro);
     }

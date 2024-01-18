@@ -24,6 +24,8 @@ public class Usuario implements Convert {
     @Column(columnDefinition = "TEXT")
     private String path_banner;
 
+    private String createdAccount;
+
     @Column(columnDefinition = "TEXT")
     private String email;
 

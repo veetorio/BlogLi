@@ -9,22 +9,22 @@ INSERT INTO TB_USUARIO (EMAIL, NOME_USUARIO, SENHA_USUARIO,PATH_BANNER,PATH_PROF
 
 
 
-INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE) VALUES ('2022-01-10', 1, '12:30', 'Início de João Silva', 'João Silva lidera com a primeira postagem: Excelente início!', 'imagem1.jpg','início-de-joão-silva');
+INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE,TOKENUSER) VALUES ('2022-01-10', 1, '12:30', 'Início de João Silva', 'João Silva lidera com a primeira postagem: Excelente início!', 'imagem1.jpg','início-de-joão-silva','a1nrvMPtJE');
 
-inseRT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE) VALUES ('2022-01-11', 2, '14:45', 'Tendências de Maria-Oliveira', 'Maria Oliveira comenta: Seguindo as últimas tendências, ótimo conteúdo!.', 'imagem2.jpg','tendências-de-maria-oliveira');
+inseRT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE,TOKENUSER) VALUES ('2022-01-11', 2, '14:45', 'Tendências de Maria-Oliveira', 'Maria Oliveira comenta: Seguindo as últimas tendências, ótimo conteúdo!.', 'imagem2.jpg','tendências-de-maria-oliveira','6xyq8X81wr');
 
-INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE) VALUES ('2022-01-12', 3, '10:15', 'Reflexões de Carlos Souza', 'Carlos Souza compartilha suas reflexões: Uma visão interessante, obrigado por compartilhar!.', 'imagem3.jpg','reflexões-de-carlos-Souza');
+INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE,TOKENUSER) VALUES ('2022-01-12', 3, '10:15', 'Reflexões de Carlos Souza', 'Carlos Souza compartilha suas reflexões: Uma visão interessante, obrigado por compartilhar!.', 'imagem3.jpg','reflexões-de-carlos-Souza','CLDUJmhq33');
 
-INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE) VALUES ('2022-01-13', 2, '08:00', 'Opinião de Ana Pereira', 'Ana Pereira opina: Estou totalmente de acordo, muito bom!.', 'imagem4.jpg','opinião-de-ana-pereira');
+INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE,TOKENUSER) VALUES ('2022-01-13', 2, '08:00', 'Opinião de Ana Pereira', 'Ana Pereira opina: Estou totalmente de acordo, muito bom!.', 'imagem4.jpg','opinião-de-ana-pereira','6xyq8X81wr');
 
-inSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE) VALUES ('2022-01-14', 3, '16:30', 'Expressão de Luiz Santos', 'Luiz Santos expressa: Concordo plenamente, excelente ponto!.', 'imagem5.jpg','expressão-de-luiz-santos');
+inSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE,TOKENUSER) VALUES ('2022-01-14', 3, '16:30', 'Expressão de Luiz Santos', 'Luiz Santos expressa: Concordo plenamente, excelente ponto!.', 'imagem5.jpg','expressão-de-luiz-santos','CLDUJmhq33');
 
-INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE) VALUES ('2022-01-15', 1, '20:45', 'Pensamento de Fernanda Costa', 'Fernanda Costa deixa sua opinião: Isso é incrível, continuem assim!.', 'imagem6.jpg','pensamento-de-fernanda-costa');
+INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE,TOKENUSER) VALUES ('2022-01-15', 1, '20:45', 'Pensamento de Fernanda Costa', 'Fernanda Costa deixa sua opinião: Isso é incrível, continuem assim!.', 'imagem6.jpg','pensamento-de-fernanda-costa','a1nrvMPtJE');
 
-INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE) VALUES ('2022-01-16', 2, '11:20', 'Comentário de Gabriel Lima', 'Gabriel Lima comenta: Gostei bastante, parabéns pela iniciativa!.', 'imagem7.jpg','comentário-de-gabriel-lima');
+INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE,TOKENUSER) VALUES ('2022-01-16', 2, '11:20', 'Comentário de Gabriel Lima', 'Gabriel Lima comenta: Gostei bastante, parabéns pela iniciativa!.', 'imagem7.jpg','comentário-de-gabriel-lima','6xyq8X81wr');
 
-INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE) VALUES ('2022-01-17', 2, '14:10', 'Participação de Isabela Mendes', 'Isabela Mendes participa: Interessante ponto de vista, gostaria de saber mais!.', 'imagem8.jpg','participação-de-isabela-mendes');
+INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE,TOKENUSER) VALUES ('2022-01-17', 2, '14:10', 'Participação de Isabela Mendes', 'Isabela Mendes participa: Interessante ponto de vista, gostaria de saber mais!.', 'imagem8.jpg','participação-de-isabela-dmendes','6xyq8X81wr');
 
-INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE) VALUES ('2022-01-18', 3, '09:00', 'Comentário e Ricardo Silveira', 'Ricardo Silveira comenta: Isso é incrível, continue assim!.', 'imagem9.jpg','comentário-de-ricardo-silveira');
+INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE,TOKENUSER) VALUES ('2022-01-18', 3, '09:00', 'Comentário e Ricardo Silveira', 'Ricardo Silveira comenta: Isso é incrível, continue assim!.', 'imagem9.jpg','comentário-de-ricardo-silveira','CLDUJmhq33');
 
-INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE) VALUES ('2022-01-19', 1, '18:15', 'Pensamento de Camila Oliveira', 'Camila Oliveira deixa seu pensamento: Gostei bastante, continue assim!.', 'imagem10.jpg','pensamento-de-camila-oliveira');
+INSERT INTO TB_POSTAGENS (DIA_POSTAGEM, ID_USER, HORA_POSTAGEM, NOME, COMENTARIO, IMAGEM, SLUGTITLE,TOKENUSER) VALUES ('2022-01-19', 1, '18:15', 'Pensamento de Camila Oliveira', 'Camila Oliveira deixa seu pensamento: Gostei bastante, continue assim!.', 'imagem10.jpg','pensamento-de-camila-oliveira','a1nrvMPtJE');

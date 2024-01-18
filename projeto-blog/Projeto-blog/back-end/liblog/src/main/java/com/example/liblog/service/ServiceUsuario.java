@@ -31,6 +31,7 @@ public class ServiceUsuario implements Validates,SimplifierAction {
     public DtoUsuario create(Usuario user){
         ExistIntoTable(repositoryUsuario,user);// verifica se ele já existe
         user.setToken(GeneratedKey().toString());
+        user.setCreatedAccount(setDate());
         repositoryUsuario.save(user);// guardar o user no banco de dados
         return UsuarioInDtoUsuario(user);
     }

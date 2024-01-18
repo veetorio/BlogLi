@@ -5,6 +5,10 @@ import com.example.liblog.models.Post;
 import com.example.liblog.models.Usuario;
 
 import javax.lang.model.element.Element;
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 public interface SimplifierAction extends Convert {
@@ -54,5 +58,16 @@ public interface SimplifierAction extends Convert {
             token.insert(position,letter);
         }
         return token;
+    }
+
+    default String  setTiming(){
+        LocalTime localTime = LocalTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        return localTime.format(formatter);
+    }
+    default String setDate(){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd");
+        return localDateTime.format(formatter);
     }
 }

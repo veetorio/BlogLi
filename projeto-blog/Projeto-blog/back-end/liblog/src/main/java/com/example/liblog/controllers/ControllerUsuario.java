@@ -15,7 +15,7 @@ public class ControllerUsuario {
     ServiceUsuario serviceUsuario;
 
     @GetMapping
-    public ResponseEntity findAll(@RequestHeader(value = "token") String token) {
+    public ResponseEntity findAll() {
         return ResponseEntity.status(200).body(serviceUsuario.findAll());
     }
 
