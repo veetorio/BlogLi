@@ -29,6 +29,8 @@ public class Usuario implements Convert {
     @Column(columnDefinition = "TEXT")
     private String email;
 
+
+
     @Column(length = 16)
     private String token;
 
@@ -51,6 +53,13 @@ public class Usuario implements Convert {
         this.token = token;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome_usuario() {
+        return nome_usuario;
+    }
 }
 
 

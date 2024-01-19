@@ -9,7 +9,7 @@ import java.time.LocalTime;
 public record DtoPost(String title, String comentario, String pathIcon, String pathBanner , String data, String hoursdate) {
     public DtoPost(Post post){
         this(
-                post.getNome() + post.getId(),
+                post.getId() +" "+ post.getNome(),
                 post.getComentario(),
                 post.getUrl(),
                 post.getPathBanner(),

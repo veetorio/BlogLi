@@ -33,6 +33,7 @@ public class ServicePostagem implements Validates, SimplifierAction {
     public DtoPost create(Post livro){
         Usuario user = repositoryUsuario.findById(livro.getUser().getId()).orElseThrow();
         livro.setSlugTitle(slug.slugify(livro.getNome()));
+
         livro.setTokenuser(user.getToken());
         livro.setHoursdate(setTiming());
         livro.setData(setDate());

@@ -24,7 +24,7 @@ public class Post implements SimplifierAction {
 
     @Column(name = "imagem",columnDefinition = "Text",nullable = false)
     private String url;
-
+    
     @Column(name = "slugtitle")
     private String slugTitle;
 
@@ -47,5 +47,7 @@ public class Post implements SimplifierAction {
         return slugTitle;
     }
 
-
+    public String getNome() {
+        return nome;
+    }
 }
