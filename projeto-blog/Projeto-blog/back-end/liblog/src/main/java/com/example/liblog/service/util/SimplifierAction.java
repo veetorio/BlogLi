@@ -12,31 +12,23 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 public interface SimplifierAction extends Convert {
-    default Object setterUpdate(Object updates,Object objectafter){
-        switch (updates.getClass().getSimpleName()) {
-            case "Usuario":
-                Usuario element = (Usuario) updates;// user com atualizações
-                Usuario UserAfter = (Usuario) objectafter;// user para atualizar
+    default Object setterUpdate(Object updates,Object objectafter) {
+        if (updates instanceof Usuario updatesUser) {
+            Usuario userAfter = (Usuario) objectafter;
+            userAfter.setNome_usuario(updatesUser.getNome_usuario());
+            userAfter.setEmail(updatesUser.getEmail());
 
-                UserAfter.setNome_usuario(element.getNome_usuario());
-                UserAfter.setSenha_usuario(element.getSenha_usuario());
-                UserAfter.setEmail(element.getEmail());
+            return userAfter;
+        } else if (updates instanceof Post updatesPost) {
+            Post postAfter = (Post) objectafter;
+            postAfter.setNome(updatesPost.getNome());
+            postAfter.setUrl(updatesPost.getUrl());
+            postAfter.setPathBanner(updatesPost.getPathBanner());
 
-                return UserAfter;
-            case "Post":
-                Post post = (Post) updates;// post com atualizações
-                Post postAfter = (Post) objectafter;// post para atualizar
-                
-                postAfter.setNome(post.getNome());
-                postAfter.setUrl(post.getUrl());
-                postAfter.setComentario(post.getComentario());
-
-                return postAfter;
-            default:
-                return new NotExistUserException("Este tipo de dado não é suportado");
+            return postAfter;
         }
+        return (NotExistUserException) new NotExistUserException("tipo não existe");
     }
-
     default String dismantleIdN(String value){
         return  value
                 .replaceAll("-"," ")

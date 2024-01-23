@@ -17,6 +17,4 @@ public interface RepositoryPostagem extends JpaRepository<Post,Long> {
 
     @Query("SELECT p FROM Post p WHERE p.slugTitle LIKE %?1%")
     public List<Post> findByNameContaining(String name);
-
-
 }
