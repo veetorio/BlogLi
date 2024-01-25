@@ -13,10 +13,13 @@ public interface RepositoryPostagem extends JpaRepository<Post,Long> {
     Post findByName(@Param(value = "nome") String name);
 
     @Query("SELECT p FROM Post p ORDER BY p.id DESC")
-    public List<Post> findAll();
+    List<Post> findAll();
+
+    @Query("from Post p where p.type = :type")
+    List findByType(String type);
 
     @Query("SELECT p FROM Post p WHERE p.slugTitle LIKE %?1%")
-    public List<Post> findByNameContaining(String name);
+    List<Post> findByNameContaining(String name);
 
 
 }

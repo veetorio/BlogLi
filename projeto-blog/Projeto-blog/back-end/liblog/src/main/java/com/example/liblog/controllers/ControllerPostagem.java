@@ -25,8 +25,8 @@ public class ControllerPostagem {
     ServicePostagem servicePostagem;
 
     @GetMapping
-    public ResponseEntity<List<DtoPost>> findAll() {
-        return ResponseEntity.status(200).body(servicePostagem.findAll());
+    public ResponseEntity<List<DtoPost>> findAll(@RequestParam(required = false) String type) {
+        return ResponseEntity.status(200).body(servicePostagem.findAll(type));
     }
     @GetMapping("/{name}")
     public ResponseEntity findByName(@PathVariable String name) {

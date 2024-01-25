@@ -37,7 +37,13 @@ public class Post implements SimplifierAction {
     @Column(name = "hora_postagem",length = 12)
     private String hoursdate;
 
-    String tokenuser;
+    private String tokenuser;
+
+    private String type;
+
+    public String getType() {
+        return type;
+    }
 
     @ManyToOne
     @JoinColumn(name = "id_user")
