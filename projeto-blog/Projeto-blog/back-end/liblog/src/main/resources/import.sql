@@ -1,4 +1,3 @@
-
 INSERT INTO TB_USUARIO (EMAIL, NOME_USUARIO, SENHA_USUARIO,PATH_BANNER,PATH_PROFILE,TOKEN) VALUES ('usuario1@example.com', 'Usuario1', 'senha123','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfm-8YEk6pqpfGOLXwYar5qWwCoLDaJWfbtQ&usqp=CAU','https://cdn.icon-icons.com/icons2/2620/PNG/512/among_us_player_red_icon_156942.png','a1nrvMPtJE');
 
 INSERT INTO TB_USUARIO (EMAIL, NOME_USUARIO, SENHA_USUARIO,PATH_BANNER,PATH_PROFILE,TOKEN) VALUES ('usuario2@example.com', 'Usuario2', 'senha456','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq1A7PEB3k4NVg4aj7foSAkgyEIM_Ppbqx5w&usqp=CAU','https://i.pinimg.com/originals/36/b9/6d/36b96d3dae3b2cac152c50b93a154edb.jpg','6xyq8X81wr');
