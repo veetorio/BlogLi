@@ -21,9 +21,11 @@ public class ServicePostagem implements Validates, SimplifierAction {
     private Slugify slug = new Slugify();
     @Autowired
     private RepositoryUsuario repositoryUsuario;
-    public List<DtoPost> findAll(){
-        List<Post> listaLivros = repositoryPostagem.findAll();
-        return listInDtoPost(listaLivros);
+    public List<DtoPost> findAll(String type){
+        List list;
+        if(type == null) list = repositoryPostagem.findAll();
+            else list = repositoryPostagem.findByType(type);
+        return listInDtoPost(list);
     }
     public List findByName(String name){
         List post  = repositoryPostagem.findByNameContaining((name));
@@ -33,7 +35,6 @@ public class ServicePostagem implements Validates, SimplifierAction {
     public DtoPost create(Post livro){
         Usuario user = repositoryUsuario.findById(livro.getUser().getId()).orElseThrow();
         livro.setSlugTitle(slug.slugify(livro.getNome()));
-
         livro.setTokenuser(user.getToken());
         livro.setHoursdate(setTiming());
         livro.setData(setDate());

@@ -38,6 +38,7 @@ public class ServiceUsuario implements Validates,SimplifierAction {
     public DtoUsuario update(Usuario userBefore){
         Usuario userAfter = repositoryUsuario.findById(userBefore.getId()).orElseThrow(() -> new NotExistUserException("usuario não existe"));
         Usuario user = (Usuario) setterUpdate(userBefore,userAfter);
+        NotExist(user,"usuario");
         repositoryUsuario.save(user);
         return UsuarioInDtoUsuario(user);
     }
