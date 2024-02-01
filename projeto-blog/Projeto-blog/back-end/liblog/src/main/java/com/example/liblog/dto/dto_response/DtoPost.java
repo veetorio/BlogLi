@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 
-public record DtoPost(Long id,String title, String comentario, String pathIcon, String pathBanner , String data, String hoursdate) {
+public record DtoPost(Long id,String title, String comentario, String pathIcon, String pathBanner , String data, String hoursdate,String DonoPost,String urlIcon) {
     public DtoPost(Post post){
         this(
                 post.getId(),
@@ -15,7 +15,9 @@ public record DtoPost(Long id,String title, String comentario, String pathIcon, 
                 post.getUrl(),
                 post.getPathBanner(),
                 post.getData(),
-                post.getHoursdate()
+                post.getHoursdate(),
+                post.getUser().getNome_usuario(),
+                post.getUser().getPath_profile()
         );
 
     }
